@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,5 @@ Auth::routes();
 Route::get('email/verify', [VerificationController::class,'show'])->name('verification.notice');
 Route::get('email/verify/{id}/{hash}', [VerificationController::class,'verify'])->name('verification.verify');
 Route::post('email/resend', [VerificationController::class,'resend'])->name('verification.resend');
+
+Route::resource('users', UsersController::class, ['only' => ['show', 'update', 'edit']]);
