@@ -22,6 +22,7 @@ class UsersController extends Controller
     }
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
+        dd($request->avatar);
         $data = $request->all();
 
         if ($request->avatar) {
