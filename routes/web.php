@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\TopicsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +27,5 @@ Route::get('email/verify/{id}/{hash}', [VerificationController::class,'verify'])
 Route::post('email/resend', [VerificationController::class,'resend'])->name('verification.resend');
 
 Route::resource('users', UsersController::class, ['only' => ['show', 'update', 'edit']]);
+
+Route::resource('topics', TopicsController::class, ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
